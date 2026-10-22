@@ -5,12 +5,6 @@ import matplotlib.pyplot as plt
 ScoringList = []
 
 # Append individual dictionaries
-# ScoringList.append({
-#     1: 1,      2: 2,     3: 3,    4: 2,     5: 5,
-#     6: 2,      7: 7,     8: 2,    9: 3,    10: 2,
-#     11: 11,   12: 2,    13: 13,  14: 2,    15: 3,
-#     16: 2,    17: 17,   18: 2,   19: 19,   20: 2})
-# Nah, just do it as an array. I thought a dictionary would be more concise
 ScoringList.append(np.array(
     [ 1,  2,  3,  2,  5,   # 1 to 5  # remember to subtract one from the roll to get 0-based index.  
       2,  7,  2,  9,  2,   # 6 to 10 # That's what I would have gotten from the dictionary.
@@ -19,7 +13,9 @@ ScoringList.append(np.array(
 
 
 nDieLimits = [6,10,20] # These will be the dies players have to choose from
-nMean = [1,2,3,5,10] # Sweeping sample size is a cheap way 
+# nMean = [1,2,3,5,10]
+nMean = [1, 3, 10] 
+# Sweeping sample size is a cheap way 
 # to get a feel for the central limit, how quickly are the gains of big rolls erased. 
 nRolls = 101 # prime to keep sets from repeating
 RngObj = np.random.default_rng() # random number generator
