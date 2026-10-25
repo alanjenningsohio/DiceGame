@@ -114,7 +114,6 @@ for i_player in range(0,nPlayers):
                     i_die = 0
                     i_bonus = 0
             elif i_player == 5: # 2 bonus, d20
-                i_bonus = 0
                 if Scores[i_turn-1,i_game,i_player] >= DieCostList[2] + BonusCostList[1]:
                     i_die = 2
                     i_bonus = 1
@@ -152,7 +151,6 @@ for i_player in range(0,nPlayers):
                     i_die = 0
                     i_bonus = 0
             elif i_player == 8: # big bonus, d20
-                i_bonus = 0
                 if Scores[i_turn-1,i_game,i_player] >= DieCostList[2] + BonusCostList[2]:
                     i_die = 2
                     i_bonus = 2
@@ -161,7 +159,7 @@ for i_player in range(0,nPlayers):
                     i_bonus = 2
                 elif Scores[i_turn-1,i_game,i_player] >= BonusCostList[2]:
                     i_die = 0
-                    i_bonus = 1
+                    i_bonus = 2
                 elif Scores[i_turn-1,i_game,i_player] >= DieCostList[1]:
                     i_bonus = 0
                     i_die = 1 
@@ -181,7 +179,7 @@ for i_player in range(0,nPlayers):
         tmpAxes[i_player].plot(Scores[:,i_game,i_player], label=f"End {GameLength[0,i_game,i_player]}")
     # end of games
     tmpAxes_cdfEnd[0].ecdf(GameLength[0,:,i_player], 
-                           label=f"Player: {i_player}",
+                           label=playerNames[i_player],
                            linewidth=((len(playerNames) - i_player)/2+1),
                            linestyle='--')
     # tmpAxes[i_player].legend()
